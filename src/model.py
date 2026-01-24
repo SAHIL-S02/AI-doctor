@@ -17,8 +17,7 @@ def train_logistic_model(df: pd.DataFrame):
 
     model = LogisticRegression(
         max_iter=1000,
-        class_weight='balanced',
-        n_jobs=-1
+        class_weight='balanced'
     )
 
     model.fit(X_train, y_train)
@@ -34,4 +33,5 @@ def train_logistic_model(df: pd.DataFrame):
     print("\nClassification Report:")
     print(classification_report(y_test, y_pred))
 
-    return model, X_test, y_test, y_proba
+    return model, X_train, X_test, y_train, y_test, y_proba
+
